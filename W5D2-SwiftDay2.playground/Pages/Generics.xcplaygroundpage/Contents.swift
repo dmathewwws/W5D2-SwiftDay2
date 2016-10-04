@@ -16,8 +16,36 @@
 //}
 
 
+func peek<Element> (interestingValue:Element) -> Element {
+    return interestingValue
+}
+
+var value1 = peek(interestingValue: 4)
+var value2 = peek(interestingValue: "Hello")
 
 
 
 
+
+
+
+protocol Numeric {
+    static func +(lhs: Self, rhs: Self) -> Self
+}
+
+extension Double : Numeric {}
+extension Float  : Numeric {}
+extension Int    : Numeric {}
+
+
+func addIfNotDuplicate<Element:Numeric> (firstValue:Element, secondValue:Element) -> Element? where Element:Equatable {
+
+    if firstValue == secondValue {
+        return nil
+    }
+        return firstValue + secondValue
+    
+}
+
+addIfNotDuplicate(firstValue: 3, secondValue: 5)
 //: [Next](@next)
